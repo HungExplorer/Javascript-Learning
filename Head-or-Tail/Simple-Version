@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random-Guessing</title>
+    </head>
+
+    <body>
+        <p>Guessing: Head or Tail?</p>
+        <button onclick="
+            Guessing = 'Head';
+            result = (Guessing === Random) ? 'You win' : 'You lose';
+            console.log(`The result is ${Random}, you guess ${Guessing}. ${result}`);
+            
+            /* Full-version:
+            Guessing = 'Head';
+            if (Guessing === Random) {
+                console.log(`The result is ${Random}, you guess ${Guessing}. You win`);
+            } else {
+                console.log(`The result is ${Random}, you guess ${Guessing}. You lose`);
+            }
+            */ 
+            
+        ">Head</button>
+
+        <button onclick="
+            Guessing = 'Tail';
+            result = (Guessing === Random) ? 'You win' : 'You lose';
+            console.log(`The result is ${Random}, you guess ${Guessing}. ${result}`);
+
+            /* Full-version:
+            Guessing = 'Tail';
+            if (Guessing === Random) {
+                console.log(`The result is ${Random}, you guess ${Guessing}. You win`);
+            } else {
+                console.log(`The result is ${Random}, you guess ${Guessing}. You lose`);
+            }
+            */
+             
+        ">Tail</button>
+
+        <script>
+            let Random = Math.random();
+            if (Random < 0.5) {
+                Random = 'Head';
+            } else {
+                Random = 'Tail';
+            }
+        </script>
+    </body>
+</html>
