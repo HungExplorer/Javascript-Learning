@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Simple Calculator</title>
+    </head>
+
+    <body>
+        <p>Calculator</p>
+        <!--First Row-->
+        <button onclick="calculation(1);">1</button>
+        <button onclick="calculation(2);">2</button>
+        <button onclick="calculation(3);">3</button>
+        <button onclick="calculation(' + ');">+</button>
+
+        <br> <br>
+        <!--Second Row-->
+        <button onclick="calculation(4);">4</button>
+        <button onclick="calculation(5);">5</button>
+        <button onclick="calculation(6);">6</button>
+        <button onclick="calculation(' - ');">-</button>
+
+        <br> <br>
+        <!--Third Row-->
+        <button onclick="calculation(7);">7</button>
+        <button onclick="calculation(8);"> 8</button>
+        <button onclick="calculation(9);">9</button>
+        <button onclick="calculation(' * ');">*</button>
+
+        <br> <br>
+        <!--Fourth Row-->
+        <Button onclick="calculation(0);">0</Button>
+        <button onclick="calculation('.');">.</button>
+        <button onclick="calculation('=');">=</button>
+        <button onclick="calculation(' / ');">/</button>
+
+        <br> <br>
+        <button onclick="calculation('Clear');">Clear</button>
+
+        <script>
+            let result = " ";
+            function calculation(symbol){
+                if (symbol != '=' && symbol != 'Clear') {
+                    result += symbol;
+                    console.log(result); 
+                } 
+                else if (symbol === '='){
+                    answer = eval(result) //Turn string into actual Math
+                    console.log(answer);
+                    alert(`The result of the calculation is: ${answer}`);
+                }
+                else {
+                    result = '';
+                    console.log('Cleared');
+                }
+            }
+        </script>
+    </body>
+</html>
