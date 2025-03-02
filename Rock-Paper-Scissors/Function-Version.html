@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock-Paper-Scissors</title>
+    </head>
+
+    <body>
+        <p>Rock Paper Scissors</p>
+        
+        <button onclick="
+            const result = computer_move();
+            if (result === 'rock') {
+                answer = 'Tie.';
+            } else if (result === 'paper') {
+                answer = 'You lose.';
+            } else {
+                answer = 'You win';
+            }
+            alert(`You pick rock. The computer picked ${result}. ${answer}`);
+            ">Rock</button>
+
+        <button onclick="
+            computer_move();
+            if (result === 'rock') {
+                answer = 'You win.';
+            } else if (result === 'paper') {
+                answer = 'Tie.';
+            } else {
+                answer = 'You lose.';
+            }
+            alert(`You pick paper. The computer picked ${result}. ${answer}`);
+            ">Paper</button>
+
+        <button onclick="
+            computer_move();
+            if (result === 'rock') {
+                answer = 'You lose.';
+            } else if (result === 'paper') {
+                answer = 'You win.';
+            } else {
+                answer = 'Tie.';
+            }
+            alert(`You pick scissors. The computer picked ${result}. ${answer}`);
+            ">Scissors</button>
+
+        <script>
+            /* 
+            0---------|1/3|---------|2/3|-----------1
+                rock         paper         scissors
+            - If between 0 and 1/3 => Rock
+            - If between 1/3 and 2/3 => Paper
+            - If between 2.3 and 1 => Scissors
+            */
+            function computer_move(){
+                computer = Math.random();
+                result = '';
+                if (computer < 1/3) {
+                    result = 'rock';
+                } else if (computer >= 1/3 && computer <2/3){
+                    result = 'paper';
+                } else {
+                    result = 'scissors';
+                }
+                return result;
+            }
+        </script>
+    </body>
+</html>
