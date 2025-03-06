@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Random-Guessing</title>
+    </head>
+
+    <body>
+        <p>Guessing: Head or Tail?</p>
+
+        <button onclick="
+            playGame('Head');
+        ">Head</button>
+
+        <button onclick="
+            playGame('Tail');
+        ">Tail</button>
+
+        <button onclick="
+          score.wins = 0, score.losses = 0;
+          localStorage.removeItem('score');
+          console.log('The score is reset')
+        ">Reset the score</button>
+
+        <script>
+          let score = JSON.parse(localStorage.getItem(('score'))) ||
+          {
+            wins: 0,
+            losses: 0
+          };
+
+            let Random = Math.random();
+            if (Random < 0.5) {
+                Random = 'Head';
+            } else {
+                Random = 'Tail';
+            }
+
+            function playGame(Guessing){
+              if (Guessing === 'Head') {
+                result = (Guessing === Random) ? 'You win' : 'You lose';
+                console.log(`The result is ${Random}, you guess ${Guessing}. ${result}`);
+              } else {
+                result = (Guessing === Random) ? 'You win' : 'You lose';
+                console.log(`The result is ${Random}, you guess ${Guessing}. ${result}`);
+              }
+            
+              if (result === 'You win') {
+                score.wins++;
+              } else {
+                score.losses++;
+              }
+
+              localStorage.setItem('score', JSON.stringify(score));
+
+              console.log(`Wins: ${score.wins}, Losses: ${score.losses}`);
+            }
+
+
+        </script>
+    </body>
+</html>
